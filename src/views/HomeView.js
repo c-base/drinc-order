@@ -5,7 +5,8 @@ import { connect }            from 'react-redux';
 // Normally you'd import your action creators, but I don't want to create
 // a file that you're just going to delete anyways!
 const actionCreators = {
-  increment : () => ({ type : 'COUNTER_INCREMENT' })
+  increment : () => ({ type : 'COUNTER_INCREMENT' }),
+  decrement : () => ({ type : 'COUNTER_DECREMENT' })
 };
 
 // We define mapStateToProps and mapDispatchToProps where we'd normally use
@@ -36,7 +37,11 @@ export class HomeView extends React.Component {
         <h2>Sample Counter: {this.props.counter}</h2>
         <button className='btn btn-default'
                 onClick={this.props.actions.increment}>
-          Increment
+          +
+        </button>
+        <button className='btn btn-default'
+                onClick={this.props.actions.decrement}>
+          -
         </button>
       </div>
     );
