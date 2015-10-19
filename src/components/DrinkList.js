@@ -1,5 +1,5 @@
 import React from 'react';
-import Drink from './Drink'
+import Drink from './Drink';
 
 export default class DrinkList extends React.Component {
   static propTypes = {
