@@ -1,33 +1,32 @@
 import React                    from 'react';
 import { bindActionCreators }   from 'redux';
 import { connect }              from 'react-redux';
-import DrinkList                from '../components/DrinkList'
-import AddDrink                 from '../components/AddDrink'
-import { ADD_DRINK, addDrink }  from '../actions'
+import DrinkList                from '../components/DrinkList';
+import AddDrink                 from '../components/AddDrink';
+import { addDrink }             from '../actions';
 
 const actionCreators = {
-  addDrink : () => ({ type : ADD_DRINK })
+  addDrink
 };
 
 const mapStateToProps = (state) => ({
   drinks : state.drinks
 });
 const mapDispatchToProps = (dispatch) => ({
-   actions : bindActionCreators(actionCreators, dispatch)
+  actions : bindActionCreators(actionCreators, dispatch)
 });
+
 export class DrinksView extends React.Component {
   static propTypes = {
-    drinks  : React.PropTypes.array
+    drinks  : React.PropTypes.array,
+    actions : React.PropTypes.object
   }
 
   render () {
     return (
       <div className='container text-center'>
         <h1>Getränce</h1>
-        <AddDrink
-          onAddClick={name =>
-            dispatch(addDrink(name))
-          } />
+        <AddDrink onAddClick={this.props.actions.addDrink} />
         <DrinkList drinks={this.props.drinks} />
       </div>
     );

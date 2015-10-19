@@ -5,7 +5,7 @@ export default class AddDrink extends React.Component {
     onAddClick: React.PropTypes.func.isRequired
   }
 
-  handleClick(e) {
+  handleClick() {
     const node = this.refs.input;
     const name = node.value.trim();
     this.props.onAddClick(name);
@@ -16,7 +16,7 @@ export default class AddDrink extends React.Component {
     return (
       <div>
         <input type='text' ref='input' />
-        <button onClick={(e) => this.handleClick(e)}>
+        <button onClick={() => this.handleClick()}>
           Add
         </button>
       </div>
