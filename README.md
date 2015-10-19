@@ -1,8 +1,14 @@
 # c-base drinc order
+[![Build Status](https://travis-ci.org/c-base/drinc-order.svg?branch=master)](https://travis-ci.org/c-base/drinc-order?branch=master)
 
-
+#### drinks
+* can open /drinks
+* can fill in a drinks name
+* can add a drink to the list
 
 ___
+
+this app is build with
 
 React Redux Starter Kit
 =======================
