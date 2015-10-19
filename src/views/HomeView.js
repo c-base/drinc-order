@@ -35,11 +35,11 @@ export class HomeView extends React.Component {
       <div className='container text-center'>
         <h1>Welcome to the React Redux Starter Kit</h1>
         <h2>Sample Counter: {this.props.counter}</h2>
-        <button className='btn btn-default'
+        <button className='btn btn-default incrementButton'
                 onClick={this.props.actions.increment}>
           +
         </button>
-        <button className='btn btn-default'
+        <button className='btn btn-default decrementButton'
                 onClick={this.props.actions.decrement}>
           -
         </button>

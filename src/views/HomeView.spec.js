@@ -25,7 +25,8 @@ describe('(View) Home', function () {
     _spies = {};
     _props = {
       actions : bindActionCreators({
-        increment : (_spies.increment = sinon.spy())
+        increment : (_spies.increment = sinon.spy()),
+        decrement : (_spies.decrement = sinon.spy())
       }, _spies.dispatch = sinon.spy())
     };
 
@@ -65,14 +66,29 @@ describe('(View) Home', function () {
   });
 
   it('Should render an "Increment" button.', function () {
-    const btn = TestUtils.findRenderedDOMComponentWithTag(rendered, 'button');
+    const btn = TestUtils.findRenderedDOMComponentWithClass(rendered, 'incrementButton');
 
     expect(btn).to.exist;
-    expect(btn.textContent).to.match(/Increment/);
+    expect(btn.textContent).to.match(/\+/);
   });
 
   it('Should dispatch an action when "Increment" button is clicked.', function () {
-    const btn = TestUtils.findRenderedDOMComponentWithTag(rendered, 'button');
+    const btn = TestUtils.findRenderedDOMComponentWithClass(rendered, 'incrementButton');
+
+    _spies.dispatch.should.have.not.been.called;
+    TestUtils.Simulate.click(btn);
+    _spies.dispatch.should.have.been.called;
+  });
+
+  it('Should render an "Decrement" button.', function () {
+    const btn = TestUtils.findRenderedDOMComponentWithClass(rendered, 'decrementButton');
+
+    expect(btn).to.exist;
+    expect(btn.textContent).to.match(/-/);
+  });
+
+  it('Should dispatch an action when "Decrement" button is clicked.', function () {
+    const btn = TestUtils.findRenderedDOMComponentWithClass(rendered, 'decrementButton');
 
     _spies.dispatch.should.have.not.been.called;
     TestUtils.Simulate.click(btn);
