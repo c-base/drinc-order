@@ -7,6 +7,6 @@ import DrinksView  from 'views/DrinksView';
 export default (
   <Route component={CoreLayout}>
     <Route name='home' path='/' component={HomeView} />
-    <Route name='drinks' path='/drinks' component={DrinksView} />
+    <Route name='drincs' path='/drincs' component={DrinksView} />
   </Route>
 );
