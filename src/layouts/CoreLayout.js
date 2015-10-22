@@ -12,9 +12,11 @@ export default class CoreLayout extends React.Component {
 
   render () {
     return (
-      <div className='page-container'>
-        <div className='view-container'>
-          {this.props.children}
+      <div className='container'>
+        <div className='row'>
+          <div className="col-lg-12">
+            {this.props.children}
+          </div>
         </div>
       </div>
     );
