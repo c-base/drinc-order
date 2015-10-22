@@ -11,8 +11,8 @@ export default class Drink extends React.Component {
     return (
     <div className="row">
       <div className="col-lg-4">{this.props.name}</div>
-      <div className="col-lg-4">{this.props.min}</div>
-      <div className="col-lg-4">{this.props.max}</div>
+      <div className="col-lg-1">{this.props.min}</div>
+      <div className="col-lg-1">{this.props.max}</div>
     </div>
     );
   }

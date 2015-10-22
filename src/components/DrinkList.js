@@ -14,12 +14,11 @@ export default class DrinkList extends React.Component {
         <div className="col-lg-12">
           <div className="row">
             <div className="col-lg-4">getra:nc</div>
-            <div className="col-lg-4">min</div>
-            <div className="col-lg-4">max</div>
+            <div className="col-lg-1">min</div>
+            <div className="col-lg-1">max</div>
           </div>
             {this.props.drinks.map((drink, index) =>
-                <Drink {...drink}
-                  key={index} />
+                <Drink {...drink} key={index} />
             )}
         </div>
       </div>

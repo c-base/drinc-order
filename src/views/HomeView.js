@@ -34,7 +34,10 @@ export class HomeView extends React.Component {
     return (
       <div className="row">
         <div className='col-lg-12'>
-          <h2>Welcome <small>to the React Redux Starter Kit</small></h2>
+          <div className="page-header">
+            <h2>Welcome <small>to the React Redux Starter Kit</small></h2>
+          </div>
+
           <h4>Sample Counter: {this.props.counter}</h4>
 
           <button className='btn btn-default incrementButton'

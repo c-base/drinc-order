@@ -26,7 +26,9 @@ export class DrinksView extends React.Component {
     return (
       <div className="row">
         <div className="col-lg-12">
-          <h3>getra:nce <small>soll bestand</small></h3>
+          <div className="page-header">
+            <h3>getra:nce <small>soll bestand</small></h3>
+          </div>
           <div className="row">
             <div className="col-lg-6">
               <AddDrink onAddClick={this.props.actions.addDrink} />
