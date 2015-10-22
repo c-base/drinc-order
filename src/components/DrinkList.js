@@ -10,11 +10,19 @@ export default class DrinkList extends React.Component {
 
   render() {
     return (
-      <ul>
-        {this.props.drinks.map((drink, index) =>
-          <Drink {...drink}
-            key={index} />
-      )}</ul>
+      <div className="row">
+        <div className="col-lg-12">
+          <div className="row">
+            <div className="col-lg-4">getra:nc</div>
+            <div className="col-lg-4">min</div>
+            <div className="col-lg-4">max</div>
+          </div>
+            {this.props.drinks.map((drink, index) =>
+                <Drink {...drink}
+                  key={index} />
+            )}
+        </div>
+      </div>
     );
   }
 }

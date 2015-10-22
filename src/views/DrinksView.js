@@ -24,10 +24,17 @@ export class DrinksView extends React.Component {
 
   render () {
     return (
-      <div className='container text-center'>
-        <h1>Getränce</h1>
-        <AddDrink onAddClick={this.props.actions.addDrink} />
-        <DrinkList drinks={this.props.drinks} />
+      <div className="row">
+        <div className="col-lg-12">
+          <h3>getra:nce <small>soll bestand</small></h3>
+          <div className="row">
+            <div className="col-lg-6">
+              <AddDrink onAddClick={this.props.actions.addDrink} />
+            </div>
+          </div>
+          <DrinkList drinks={this.props.drinks} />
+        </div>
+
       </div>
     );
   }

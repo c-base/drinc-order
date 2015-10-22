@@ -6,7 +6,7 @@ export default class AddDrink extends React.Component {
   }
 
   handleClick() {
-    const node = this.refs.input;
+    const node = this.refs.name;
     const name = node.value.trim();
     this.props.onAddClick(name);
     node.value = '';
@@ -14,11 +14,11 @@ export default class AddDrink extends React.Component {
 
   render () {
     return (
-      <div>
-        <input type='text' ref='input' />
-        <button onClick={() => this.handleClick()}>
-          Add
-        </button>
+      <div className="input-group">
+        <input type="text" ref="name" className="form-control" />
+        <span className="input-group-btn">
+          <button onClick={() => this.handleClick()} className="btn btn-default" type="button">Add</button>
+        </span>
       </div>
     );
   }
