@@ -1,0 +1,77 @@
+[
+  {
+    "name": "Berliner Pilsner",
+    "min": 3,
+    "max": 30
+  },
+  {
+    "name": "Premium Bier",
+    "min": 3,
+    "max": 5
+  },
+  {
+    "name": "Schöfferhofer Hefe hell",
+    "min": 2,
+    "max": 4
+  },
+  {
+    "name": "Club Mate",
+    "min": 5,
+    "max": 8
+  },
+  {
+    "name": "Flora Power Mate",
+    "min": 10,
+    "max": 12
+  },
+  {
+    "name": "Kolle Mate",
+    "min": 4,
+    "max": 6
+  },
+  {
+    "name": "Premium Cola",
+    "min": 4,
+    "max": 6
+  },
+  {
+    "name": "Coca-Cola",
+    "min": 2,
+    "max": 3
+  },
+  {
+    "name": "Spezi",
+    "min": 4,
+    "max": 6
+  },
+  {
+    "name": "Braumeister Kraftmalz",
+    "min": 1,
+    "max": 2
+  },
+  {
+    "name": "Wostok Kräuter (Tannenwald)",
+    "min": 1,
+    "max": 2
+  },
+  {
+    "name": "Selters classic",
+    "min": 3,
+    "max": 5
+  },
+  {
+    "name": "Selters still",
+    "min": 3,
+    "max": 5
+  },
+  {
+    "name": "OBC classic",
+    "min": 2,
+    "max": 3
+  },
+  {
+    "name": "OBC strong",
+    "min": 2,
+    "max": 3
+  }
+]
