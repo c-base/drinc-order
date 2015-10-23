@@ -6,7 +6,7 @@ export default class DrinkListExport extends React.Component {
   }
 
   handleClick() {
-    var stringified = JSON.stringify(this.props.drinks, null, 2);
+    const stringified = JSON.stringify(this.props.drinks);
     console.log(stringified);
   }
 
