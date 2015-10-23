@@ -3,7 +3,7 @@ import { bindActionCreators }   from 'redux';
 import { connect }              from 'react-redux';
 import DrinkList                from '../components/DrinkList';
 import DrinkListExport          from '../components/DrinkListExport';
-import AddDrink                 from '../components/AddDrink';
+import DrinkForm                from '../components/DrinkForm';
 import { addDrink }             from '../actions';
 
 const actionCreators = {
@@ -36,7 +36,7 @@ export class DrinksView extends React.Component {
             </div>
             <div className="col-md-4">
               <div className="well"><DrinkListExport drinks={this.props.drinks} /></div>
-              <div className="well"><AddDrink onAddClick={this.props.actions.addDrink} /></div>
+              <div className="well"><DrinkForm onAddClick={this.props.actions.addDrink} /></div>
             </div>
           </div>
         </div>
