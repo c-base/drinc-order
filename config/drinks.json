@@ -73,5 +73,50 @@
     "name": "OBC strong",
     "min": 2,
     "max": 3
+  },
+  {
+    "name": "Rixdorfer Fassbrause",
+    "min": 1,
+    "max": 1
+  },
+  {
+    "name": "Rixdorfer Orange",
+    "min": 1,
+    "max": 1
+  },
+  {
+    "name": "Bauer-Schorle Rhabarber",
+    "min": 1,
+    "max": 1
+  },
+  {
+    "name": "Bauer-Schorle Granatabpfel",
+    "min": 1,
+    "max": 1
+  },
+  {
+    "name": "Schöfferhofer alkoholfrei",
+    "min": 1,
+    "max": 1
+  },
+  {
+    "name": "Schöfferhofer Mix Grapefruit",
+    "min": 1,
+    "max": 1
+  },
+  {
+    "name": "Berliner Kindl Radler",
+    "min": 1,
+    "max": 1
+  },
+  {
+    "name": "Wostok Estragon-Ingwer (grün)",
+    "min": 5,
+    "max": 5
+  },
+  {
+    "name": "Holsten alkoholfrei",
+    "min": 5,
+    "max": 5
   }
 ]
