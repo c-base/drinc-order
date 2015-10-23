@@ -2,6 +2,7 @@ import React                    from 'react';
 import { bindActionCreators }   from 'redux';
 import { connect }              from 'react-redux';
 import DrinkList                from '../components/DrinkList';
+import DrinkListExport          from '../components/DrinkListExport';
 import AddDrink                 from '../components/AddDrink';
 import { addDrink }             from '../actions';
 
@@ -34,7 +35,8 @@ export class DrinksView extends React.Component {
               <DrinkList drinks={this.props.drinks} />
             </div>
             <div className="col-md-4">
-              <AddDrink onAddClick={this.props.actions.addDrink} />
+              <div className="well"><DrinkListExport drinks={this.props.drinks} /></div>
+              <div className="well"><AddDrink onAddClick={this.props.actions.addDrink} /></div>
             </div>
           </div>
         </div>
