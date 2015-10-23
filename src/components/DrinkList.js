@@ -19,7 +19,7 @@ export default class DrinkList extends React.Component {
           <tr>
             <th>getra:nc</th>
             <th>min</th>
-            <th>min</th>
+            <th>max</th>
           </tr>
         </thead>
         <tbody>
