@@ -8,20 +8,26 @@ export default class DrinkList extends React.Component {
     }).isRequired).isRequired
   }
 
+  handleClick() {
+
+  }
+
   render() {
     return (
-      <div className="row">
-        <div className="col-lg-12">
-          <div className="row">
-            <div className="col-lg-4">getra:nc</div>
-            <div className="col-lg-1">min</div>
-            <div className="col-lg-1">max</div>
-          </div>
-            {this.props.drinks.map((drink, index) =>
-                <Drink {...drink} key={index} />
-            )}
-        </div>
-      </div>
+      <table className="table table-condensed table-striped table-hover">
+        <thead>
+          <tr>
+            <th>getra:nc</th>
+            <th>min</th>
+            <th>min</th>
+          </tr>
+        </thead>
+        <tbody>
+          {this.props.drinks.map((drink, index) =>
+              <Drink {...drink} key={index} />
+          )}
+        </tbody>
+      </table>
     );
   }
 }

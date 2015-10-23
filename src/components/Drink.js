@@ -9,11 +9,11 @@ export default class Drink extends React.Component {
 
   render() {
     return (
-    <div className="row">
-      <div className="col-lg-4">{this.props.name}</div>
-      <div className="col-lg-1">{this.props.min}</div>
-      <div className="col-lg-1">{this.props.max}</div>
-    </div>
+    <tr>
+      <td>{this.props.name}</td>
+      <td>{this.props.min}</td>
+      <td>{this.props.max}</td>
+    </tr>
     );
   }
 }
