@@ -15,16 +15,25 @@ export default class DrinkForm extends React.Component {
     }
     this.props.onAddClick(name, min, max);
 
-    this.refs.name.value = '';
-    this.refs.min.value = '';
-    this.refs.max.value = '';
+    this.handleClear();
+  }
+
+  handleClear() {
+    this.refs.name.value = null;
+    this.refs.min.value  = null;
+    this.refs.max.value  = null;
 
     this.refs.name.focus();
   }
 
-  handleEnter(event) {
-    if (event.keyCode === 13) {
-      this.handleClick();
+  handleKeys(event) {
+    const ENTER = 13;
+    if (event.keyCode === ENTER) {
+      return this.handleClick();
+    }
+    const ESC = 27;
+    if (event.keyCode === ESC) {
+      return this.handleClear();
     }
   }
 
@@ -34,17 +43,17 @@ export default class DrinkForm extends React.Component {
         <div className="row">
           <div className="col-md-12">
             <label className="sr-only" htmlFor="name">name</label>
-            <input type="text" ref="name" className="form-control" placeholder="getra:nc" onKeyDown={(event) => this.handleEnter(event)}/>
+            <input type="text" ref="name" className="form-control" placeholder="getra:nc" onKeyDown={(event) => this.handleKeys(event)}/>
           </div>
         </div>
         <div className="row">
           <div className="col-md-6">
             <label className="sr-only" htmlFor="min">min</label>
-            <input type="text" ref="min" className="form-control" placeholder="min" onKeyDown={(event) => this.handleEnter(event)}/>
+            <input type="text" ref="min" className="form-control" placeholder="min" onKeyDown={(event) => this.handleKeys(event)}/>
           </div>
           <div className="col-md-6">
             <label className="sr-only" htmlFor="max">max</label>
-            <input type="text" ref="max" className="form-control" placeholder="max" onKeyDown={(event) => this.handleEnter(event)}/>
+            <input type="text" ref="max" className="form-control" placeholder="max" onKeyDown={(event) => this.handleKeys(event)}/>
           </div>
         </div>
         <div className="row">
