@@ -4,14 +4,11 @@ import { connect }              from 'react-redux';
 import DrinkList                from '../components/DrinkList';
 import DrinkListExport          from '../components/DrinkListExport';
 import DrinkForm                from '../components/DrinkForm';
-import { addDrink }             from '../actions';
-
-const actionCreators = {
-  addDrink
-};
+import actionCreators           from '../actions';
 
 const mapStateToProps = (state) => ({
-  drinks : state.drinks
+  drinks        : state.drinks,
+  selectedDrink : state.selectedDrink
 });
 const mapDispatchToProps = (dispatch) => ({
   actions : bindActionCreators(actionCreators, dispatch)
@@ -32,7 +29,7 @@ export class DrinksView extends React.Component {
           </div>
           <div className="row">
             <div className="col-md-8">
-              <DrinkList drinks={this.props.drinks} />
+              <DrinkList drinks={this.props.drinks} onSelectDrink={this.props.actions.selectDrink} />
             </div>
             <div className="col-md-4">
               <div className="well"><DrinkListExport drinks={this.props.drinks} /></div>

@@ -4,15 +4,14 @@ import Drink from './Drink';
 export default class DrinkList extends React.Component {
   static propTypes = {
     drinks: React.PropTypes.arrayOf(React.PropTypes.shape({
+      id:   React.PropTypes.string.isRequired,
       name: React.PropTypes.string.isRequired
-    }).isRequired).isRequired
-  }
-
-  handleClick() {
-
+    }).isRequired).isRequired,
+    onSelectDrink: React.PropTypes.func.isRequired
   }
 
   render() {
+    const { drinks, ...other } = this.props;
     return (
       <table className="table table-condensed table-striped table-hover">
         <thead>
@@ -23,8 +22,8 @@ export default class DrinkList extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {this.props.drinks.map((drink, index) =>
-              <Drink {...drink} key={index} />
+          {drinks.map((drink) =>
+              <Drink {...drink} {...other} key={drink.id} />
           )}
         </tbody>
       </table>

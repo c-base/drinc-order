@@ -23,7 +23,7 @@ export default class DrinkForm extends React.Component {
   }
 
   handleEnter(event) {
-    if (event.keyCode == 13) {
+    if (event.keyCode === 13) {
       this.handleClick();
     }
   }
@@ -49,7 +49,7 @@ export default class DrinkForm extends React.Component {
         </div>
         <div className="row">
           <div className="col-md-12">
-            <button onClick={() => this.handleClick()} className="btn btn-default col-md-12" type="button">anfu:gen</button>
+            <button onClick={() => this.handleClick()} className="btn btn-default col-md-12" type="button">absenden</button>
           </div>
         </div>
       </div>
