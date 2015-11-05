@@ -1,10 +1,31 @@
 # c-base drinc order
 [![Build Status](https://travis-ci.org/c-base/drinc-order.svg?branch=master)](https://travis-ci.org/c-base/drinc-order?branch=master)
 
-#### drinks
-* can open /drinks
-* can fill in a drinks name
-* can add a drink to the list
+#### drincs
+* see list of drincs: /drincs
+* create order from current ist-state
+
+##### update drinc
+* update properties of drinc
+* change min- and maximum soll of drinc crates in store
+* set new ist-state (number of full crates in store)
+
+##### add drinc
+* **drinc** the brand name
+* **min** minimum amount of crates in storage, start ordering when number is reached
+* **max** maximum amount of crates in storage, order difference between ist and maximum
+
+#### orders
+* see all (open/closed) orders: /orders
+
+##### create order
+* created order from drincs list
+* update properties / numbers of order
+
+##### close order
+* final step for order, marks it as send
+* closed orders can not be changed
+
 
 ___
 
