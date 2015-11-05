@@ -5,7 +5,10 @@ const initialState = require('json!./../../config/drinks.json');
 
 // set index as as identifier
 const generateId = (index) => 'drink-' + (index + 1);
-initialState.map((drink, index) => drink.id = generateId(index));
+initialState.map((drink, index) => {
+  drink.id = generateId(index)
+  drink.ist = null
+});
 
 
 export default createReducer(initialState, {
