@@ -1,22 +1,28 @@
 import React                    from 'react';
 import { bindActionCreators }   from 'redux';
 import { connect }              from 'react-redux';
-import DrinkList                from '../components/DrinkList';
-import DrinkListExport          from '../components/DrinkListExport';
-import DrinkForm                from '../components/DrinkForm';
 import actionCreators           from '../actions';
 
+
 const mapStateToProps = (state) => ({
-  drinks        : state.drinks
+  drinks        : state.drinks,
+  orders        : state.orders
 });
 const mapDispatchToProps = (dispatch) => ({
   actions : bindActionCreators(actionCreators, dispatch)
 });
 
-export class DrinksView extends React.Component {
+export class OrderView extends React.Component {
   static propTypes = {
     drinks  : React.PropTypes.array,
+    orders  : React.PropTypes.array,
     actions : React.PropTypes.object
+  }
+
+  handleClick() {
+    console.log(this.props.orders);
+    this.props.actions.addOrder(this.props.drinks, this.props.orders);
+    console.log(this.props.orders);
   }
 
   render () {
@@ -24,15 +30,10 @@ export class DrinksView extends React.Component {
       <div className="row">
         <div className="col-md-8">
           <div className="page-header">
-            <h3>getra:nce <small>soll bestand</small></h3>
+            <h3>getra:nce bestellungen <small></small></h3>
           </div>
           <div className="row">
             <div className="col-md-8">
-              <DrinkList drinks={this.props.drinks} />
-            </div>
-            <div className="col-md-4">
-              <div className="well"><DrinkListExport drinks={this.props.drinks} /></div>
-              <div className="well"><DrinkForm onAddClick={this.props.actions.addDrink} /></div>
             </div>
           </div>
         </div>
@@ -41,4 +42,4 @@ export class DrinksView extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DrinksView);
+export default connect(mapStateToProps, mapDispatchToProps)(OrderView);

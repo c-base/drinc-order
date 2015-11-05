@@ -7,6 +7,7 @@
     "__DEBUG_NW__" : false
   },
   "rules": {
+    "no-console": 0,
     "comma-dangle": [1, "never"],
     "key-spacing": [0, {
       "beforeColon": true,

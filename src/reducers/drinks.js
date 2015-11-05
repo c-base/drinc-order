@@ -9,9 +9,5 @@ initialState.map((drink, index) => drink.id = generateId(index));
 
 
 export default createReducer(initialState, {
-  [actions.ADD_DRINK]    : (state, action) => [...state, {id: generateId(state.length), ...action}]
-});
-
-export const selectedDrink = createReducer(null, {
-  [actions.SELECT_DRINK] : (state, action) => action.id
+  [actions.DRINK_CREATE]    : (state, action) => [...state, {id: generateId(state.length), ...action}]
 });

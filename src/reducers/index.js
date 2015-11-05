@@ -1,9 +1,12 @@
-import { combineReducers }       from 'redux';
-import counter                   from './counter';
-import drinks, { selectedDrink } from './drinks';
+import { combineReducers }  from 'redux';
+import counter              from './counter';
+import drinks               from './drinks';
+import orders               from './orders';
 
 export default combineReducers({
   counter,
+
   drinks,
-  selectedDrink
+
+  orders
 });

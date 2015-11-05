@@ -6,8 +6,7 @@ export default class DrinkList extends React.Component {
     drinks: React.PropTypes.arrayOf(React.PropTypes.shape({
       id:   React.PropTypes.string.isRequired,
       name: React.PropTypes.string.isRequired
-    }).isRequired).isRequired,
-    onSelectDrink: React.PropTypes.func.isRequired
+    }).isRequired).isRequired
   }
 
   render() {
