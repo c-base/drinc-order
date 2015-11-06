@@ -4,7 +4,6 @@ import { Router }   from 'react-router';
 import routes       from '../routes';
 import { createDevToolsWindow } from '../utils';
 import { DevTools, LogMonitor, DebugPanel } from 'redux-devtools/lib/react';
-import Navigation   from '../components/Navigation';
 
 export default class Root extends React.Component {
   static propTypes = {
@@ -39,7 +38,6 @@ export default class Root extends React.Component {
     return (
       <div>
         {this.renderDevTools()}
-        <Navigation history={this.props.history} />
         <Provider store={this.props.store}>
           <Router history={this.props.history}>
             {routes}
