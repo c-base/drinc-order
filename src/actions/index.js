@@ -30,19 +30,15 @@ export function recordIst(id, ist) {
 /*
  * order: action creators
  */
+export function createOrderSuccess(order) {
+  return { type : ORDER_CREATE_SUCCESS, payload: {id: order.id} };
+}
+
 export function createOrder(drinks) {
-  return { type : ORDER_CREATE, payload: {id: shortId.generate(), date: new Date(), drinks} };
-}
-
-export function createOrderSuccess(orders) {
-  return { type : ORDER_CREATE_SUCCESS, payload: {orders} };
-}
-
-export function addOrder(drinks) {
   return (dispatch) => {
-    const order = createOrder(drinks);
-    dispatch(order.payload);
-    dispatch(createOrderSuccess(order.payload));
+    const order = { type : ORDER_CREATE, payload: {id: shortId.generate(), date: new Date(), drinks} };
+    dispatch(order);
+    // dispatch(createOrderSuccess(order.payload));
   };
 }
 
@@ -51,5 +47,6 @@ export default {
   selectDrink,
   updateDrink,
   recordIst,
-  addOrder
+
+  createOrder
 };
