@@ -20,6 +20,7 @@ export class DrinksView extends React.Component {
   }
 
   render () {
+    const { drinks, actions, ...other } = this.props;
     return (
       <div className="row">
         <div className="col-md-8">
@@ -28,11 +29,11 @@ export class DrinksView extends React.Component {
           </div>
           <div className="row">
             <div className="col-md-8">
-              <DrinkList drinks={this.props.drinks} />
+              <DrinkList drinks={drinks} actions={actions} />
             </div>
             <div className="col-md-4">
-              <div className="well"><DrinkListExport drinks={this.props.drinks} /></div>
-              <div className="well"><DrinkForm onAddClick={this.props.actions.addDrink} /></div>
+              <div className="well"><DrinkListExport drinks={drinks} /></div>
+              <div className="well"><DrinkForm onAddClick={actions.addDrink} /></div>
             </div>
           </div>
         </div>
