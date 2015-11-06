@@ -1,6 +1,7 @@
 import React                    from 'react';
 import { bindActionCreators }   from 'redux';
 import { connect }              from 'react-redux';
+import OrderCreate              from '../components/OrderCreate';
 import DrinkList                from '../components/DrinkList';
 import DrinkListExport          from '../components/DrinkListExport';
 import DrinkForm                from '../components/DrinkForm';
@@ -32,6 +33,7 @@ export class DrinksView extends React.Component {
               <DrinkList drinks={drinks} actions={actions} />
             </div>
             <div className="col-md-4">
+              <div className="well"><OrderCreate drinks={drinks} onCreateClick={actions.createOrder} /></div>
               <div className="well"><DrinkListExport drinks={drinks} /></div>
               <div className="well"><DrinkForm onAddClick={actions.addDrink} /></div>
             </div>
