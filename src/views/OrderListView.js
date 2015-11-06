@@ -5,24 +5,16 @@ import actionCreators           from '../actions';
 
 
 const mapStateToProps = (state) => ({
-  drinks        : state.drinks,
   orders        : state.orders
 });
 const mapDispatchToProps = (dispatch) => ({
   actions : bindActionCreators(actionCreators, dispatch)
 });
 
-export class OrderView extends React.Component {
+export class OrderListView extends React.Component {
   static propTypes = {
-    drinks  : React.PropTypes.array,
     orders  : React.PropTypes.array,
     actions : React.PropTypes.object
-  }
-
-  handleClick() {
-    console.log(this.props.orders);
-    this.props.actions.addOrder(this.props.drinks, this.props.orders);
-    console.log(this.props.orders);
   }
 
   render () {
@@ -42,4 +34,4 @@ export class OrderView extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(OrderView);
+export default connect(mapStateToProps, mapDispatchToProps)(OrderListView);
