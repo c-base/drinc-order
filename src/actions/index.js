@@ -39,7 +39,7 @@ export function createOrderSuccess(orders) {
 }
 
 export function addOrder(drinks) {
-  return function (dispatch) {
+  return (dispatch) => {
     const order = createOrder(drinks);
     dispatch(order.payload);
     dispatch(createOrderSuccess(order.payload));

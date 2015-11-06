@@ -8,29 +8,46 @@ export default class DrinkList extends React.Component {
       name    : React.PropTypes.string.isRequired,
       min     : React.PropTypes.number.isRequired,
       max     : React.PropTypes.number.isRequired,
-      ist     : React.PropTypes.number.isRequired
+      ist     : React.PropTypes.number
     }).isRequired).isRequired
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {drinks: {}}
+    props.drinks.map((element) => this.state.drinks[element.id] = {...element, order: element.max})
+  }
 
+  onChangeIstField(event, drink) {
+    const ist = parseInt(event.target.value, 10) || null;
+
+    if (ist === this.state.drinks[drink.id].ist) { return }
+    this.state.drinks[drink.id].ist = ist;
+    this.state.drinks[drink.id].order = this._calculateAmountToOrder(drink);
+    this.setState(this.state);
+  }
+
+  _calculateAmountToOrder(drink) {
+    const order = drink.max - this.state.drinks[drink.id].ist;
+    if (order < 0) return 0;
+    return order;
+  }
   selectDrink(drink) {
     this.props.actions.selectDrink(drink);
-    console.log('selected ' + drink.id)
   }
-  handleKeys(event) {
+  recordIst(drink, ist) {
+    this.props.actions.recordIst(drink.id, parseInt(ist, 10));
+  }
+  handleKeys(event, drink) {
     const ENTER = 13;
-    if (event.keyCode === ENTER) {
-      return this.selectDrink();
-    }
-    const ESC = 27;
-    if (event.keyCode === ESC) {
-      //return this.handleClear();
+    const TAB   = 9;
+    if (event.keyCode === ENTER || event.keyCode === TAB) {
+      return this.recordIst(drink, event.target.value);
     }
   }
 
   render() {
-    console.log(this.props);
-    const { drinks, ...other } = this.props;
+    const { drinks } = this.props;
     return (
       <table className="table table-condensed table-striped table-hover">
         <thead>
@@ -39,19 +56,24 @@ export default class DrinkList extends React.Component {
             <th>min</th>
             <th>max</th>
             <th className="istColumn">ist</th>
-            <th>order</th>
+            <th className="text-right">order</th>
           </tr>
         </thead>
         <tbody>
           {drinks.map((drink) =>
-          <tr onClick={() => this.selectDrink(drink)} key={drink.id}>
+          <tr key={drink.id} >
             <td>{drink.name}</td>
-            <td>{drink.min}</td>
-            <td>{drink.max}</td>
+            <td className="text-right">{drink.min}</td>
+            <td className="text-right">{drink.max}</td>
             <td>
-              <input className="form-control input-sm" ref="ist" value={drink.ist} onKeyDown={(event) => this.handleKeys(event)} />
+              <input
+                className="form-control input-sm"
+                ref="ist" value={this.state.drinks[drink.id].ist}
+                onKeyDown={(event) => this.handleKeys(event, drink)}
+                onChange={(event) => this.onChangeIstField(event, drink)}
+                onClick={() => this.selectDrink(drink)} />
             </td>
-            <td></td>
+            <td className="text-right">{this.state.drinks[drink.id].order}</td>
           </tr>
           )}
         </tbody>
