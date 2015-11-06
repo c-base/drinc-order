@@ -15,7 +15,11 @@ export default class DrinkList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {drinks: {}}
-    props.drinks.map((element) => this.state.drinks[element.id] = {...element, order: element.max})
+    props.drinks.map((element) => this.state.drinks[element.id] = {
+      ...element,
+      order: this._calculateAmountToOrder(element, element.ist),
+      orderStyle: this._contextColorClass(element, element.ist)
+    })
   }
 
   onChangeIstField(event, drink) {
@@ -23,15 +27,27 @@ export default class DrinkList extends React.Component {
 
     if (ist === this.state.drinks[drink.id].ist) { return }
     this.state.drinks[drink.id].ist = ist;
-    this.state.drinks[drink.id].order = this._calculateAmountToOrder(drink);
+    this.state.drinks[drink.id].order = this._calculateAmountToOrder(drink, ist);
+    this.state.drinks[drink.id].orderStyle = this._contextColorClass(drink, ist);
     this.setState(this.state);
   }
 
-  _calculateAmountToOrder(drink) {
-    const order = drink.max - this.state.drinks[drink.id].ist;
+  _calculateAmountToOrder(drink, ist) {
+    ist = ist || 0
+    const order = drink.max - parseInt(ist, 10);
     if (order < 0) return 0;
     return order;
   }
+  _contextColorClass(drink, ist) {
+    ist = ist || 0
+
+    if (ist <= drink.min)    return 'danger';
+    if (ist <= drink.min + (drink.max / 3)) return 'warning';
+    if (ist <= drink.max / 2)  return '';
+    if (ist >= drink.max)  return 'success';
+    return ''
+  }
+
   selectDrink(drink) {
     this.props.actions.selectDrink(drink);
   }
@@ -61,19 +77,21 @@ export default class DrinkList extends React.Component {
         </thead>
         <tbody>
           {drinks.map((drink) =>
-          <tr key={drink.id} >
+          <tr key={drink.id}>
             <td>{drink.name}</td>
             <td className="text-right">{drink.min}</td>
             <td className="text-right">{drink.max}</td>
             <td>
               <input
-                className="form-control input-sm"
+                className="form-control input-sm istInput"
                 ref="ist" value={this.state.drinks[drink.id].ist}
                 onKeyDown={(event) => this.handleKeys(event, drink)}
                 onChange={(event) => this.onChangeIstField(event, drink)}
                 onClick={() => this.selectDrink(drink)} />
             </td>
-            <td className="text-right">{this.state.drinks[drink.id].order}</td>
+            <td className={'text-right ' + this.state.drinks[drink.id].orderStyle} >
+              {this.state.drinks[drink.id].order}
+            </td>
           </tr>
           )}
         </tbody>
