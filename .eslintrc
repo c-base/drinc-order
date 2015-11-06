@@ -8,6 +8,7 @@
   },
   "rules": {
     "no-console": 0,
+    "semi": 0,
     "comma-dangle": [1, "never"],
     "key-spacing": [0, {
       "beforeColon": true,
