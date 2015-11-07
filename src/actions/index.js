@@ -5,8 +5,9 @@ export const DRINK_SELECT         = 'DRINK_SELECT';
 export const DRINK_UPDATE         = 'DRINK_UPDATE';
 export const DRINK_RECORD_IST     = 'DRINK_RECORD_IST';
 
-export const ORDER_CREATE         = 'ORDER_CREATE';
-export const ORDER_CREATE_SUCCESS = 'ORDER_CREATE_SUCCESS';
+export const ORDER_OPEN           = 'ORDER_OPEN';
+export const ORDER_CLOSE          = 'ORDER_CLOSE';
+export const ORDER_REOPEN         = 'ORDER_REOPEN';
 
 /*
  * drink: action creators
@@ -30,16 +31,15 @@ export function recordIst(id, ist) {
 /*
  * order: action creators
  */
-export function createOrderSuccess(order) {
-  return { type : ORDER_CREATE_SUCCESS, payload: {id: order.id} };
+export function openOrder(drinks) {
+  return { type : ORDER_OPEN, payload: {id: shortId.generate(), drinks} };
 }
 
-export function createOrder(drinks) {
-  return (dispatch) => {
-    const order = { type : ORDER_CREATE, payload: {id: shortId.generate(), date: new Date(), drinks} };
-    dispatch(order);
-    // dispatch(createOrderSuccess(order.payload));
-  };
+export function closeOrder(order) {
+  return { type : ORDER_CLOSE, payload: {...order} };
+}
+export function reopenOrder(order) {
+  return { type : ORDER_REOPEN, payload: {...order} };
 }
 
 export default {
@@ -48,5 +48,7 @@ export default {
   updateDrink,
   recordIst,
 
-  createOrder
+  openOrder,
+  closeOrder,
+  reopenOrder
 };

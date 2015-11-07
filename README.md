@@ -18,13 +18,14 @@
 #### orders
 * see all (open/closed) orders: /orders
 
-##### create order
+##### open order
 * created order from drincs list
+* there can only be one open order
 * update properties / numbers of order
 
 ##### close order
 * final step for order, marks it as send
-* closed orders can not be changed
+* closed orders can not be updated
 
 
 ___

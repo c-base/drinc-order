@@ -1,101 +1,92 @@
 import React from 'react';
 
-export default class DrinkList extends React.Component {
+export default class OrderList extends React.Component {
   static propTypes = {
     actions: React.PropTypes.object.isRequired,
-    drinks: React.PropTypes.arrayOf(React.PropTypes.shape({
-      id      : React.PropTypes.string.isRequired,
-      name    : React.PropTypes.string.isRequired,
-      min     : React.PropTypes.number.isRequired,
-      max     : React.PropTypes.number.isRequired,
-      ist     : React.PropTypes.number
+    orders: React.PropTypes.arrayOf(React.PropTypes.shape({
+      id          : React.PropTypes.string.isRequired,
+      dateCreated : React.PropTypes.object.isRequired,
+      dateUpdated : React.PropTypes.object.isRequired
     }).isRequired).isRequired
   }
 
   constructor(props) {
     super(props);
-    this.state = {drinks: {}}
-    props.drinks.map((element) => this.state.drinks[element.id] = {
-      ...element,
-      order: this._calculateAmountToOrder(element, element.ist),
-      orderStyle: this._contextColorClass(element, element.ist)
-    })
+    this.state = {};
   }
 
-  onChangeIstField(event, drink) {
-    const ist = parseInt(event.target.value, 10) || null;
-
-    if (ist === this.state.drinks[drink.id].ist) { return }
-    this.state.drinks[drink.id].ist = ist;
-    this.state.drinks[drink.id].order = this._calculateAmountToOrder(drink, ist);
-    this.state.drinks[drink.id].orderStyle = this._contextColorClass(drink, ist);
-    this.setState(this.state);
+  renderDrinks(drinks) {
+    return (
+      <div><ul className="list-unstyled">
+        {drinks
+          .map((drink) => {
+            return <li key={drink.id}>
+              <span className="label label-success">{drink.max - drink.ist}</span> {drink.name}
+            </li>
+          })
+        }
+      </ul></div>
+    );
   }
 
-  _calculateAmountToOrder(drink, ist) {
-    ist = ist || 0
-    const order = drink.max - parseInt(ist, 10);
-    if (order < 0) return 0;
-    return order;
-  }
-  _contextColorClass(drink, ist) {
-    ist = ist || 0
-
-    if (ist <= drink.min)    return 'danger';
-    if (ist <= drink.min + (drink.max / 3)) return 'warning';
-    if (ist <= drink.max / 2)  return '';
-    if (ist >= drink.max)  return 'success';
-    return ''
+  renderOrderState(order) {
+    if (order.state === 'open') return <span className="label label-success">status: offen</span>;
+    return (
+      <span className="label label-primary">status: gec_lossen</span>
+    )
   }
 
-  selectDrink(drink) {
-    this.props.actions.selectDrink(drink);
+  renderStateButton(order) {
+    if (order.state !== 'open')
+      return (
+        <button
+          onClick={() => this.props.actions.reopenOrder(order)}
+          className="btn btn-warning btn-xs text-right"
+          type="button" >noch mal</button>
+      );
+    return (
+      <button
+        onClick={() => this.props.actions.closeOrder(order)}
+        className="btn btn-warning btn-xs text-right"
+        type="button" >fertig</button>
+    )
   }
-  recordIst(drink, ist) {
-    this.props.actions.recordIst(drink.id, parseInt(ist, 10));
+
+  renderStateColor(order) {
+    return (order.state === 'open') ? 'success' : 'default'
   }
-  handleKeys(event, drink) {
-    const ENTER = 13;
-    const TAB   = 9;
-    if (event.keyCode === ENTER || event.keyCode === TAB) {
-      return this.recordIst(drink, event.target.value);
-    }
+
+  renderOrder(order) {
+    return (
+      <div className={'panel panel-' + this.renderStateColor(order)} key={order.id}>
+        <div className="panel-heading">
+          {order.id}
+          <span className="pull-right">{this.renderStateButton(order)}</span>
+        </div>
+        <div className="panel-body">
+          {this.renderDrinks(order.drinks)}
+        </div>
+        <div className="panel-footer">
+          {this.renderOrderState(order)}
+          <span className="label label-info">erstellt: {order.dateCreated.toDateString()}</span>&nbsp;
+          <span className="label label-info">gea:ndert: {order.dateUpdated.toDateString()}</span>
+          <div></div>
+        </div>
+      </div>
+    )
   }
 
   render() {
-    const { drinks } = this.props;
+    const { orders } = this.props;
     return (
-      <table className="table table-condensed table-striped table-hover">
-        <thead>
-          <tr>
-            <th>getra:nc</th>
-            <th>min</th>
-            <th>max</th>
-            <th className="istColumn">ist</th>
-            <th className="text-right">order</th>
-          </tr>
-        </thead>
-        <tbody>
-          {drinks.map((drink) =>
-          <tr key={drink.id}>
-            <td>{drink.name}</td>
-            <td className="text-right">{drink.min}</td>
-            <td className="text-right">{drink.max}</td>
-            <td>
-              <input
-                className="form-control input-sm istInput"
-                ref="ist" value={this.state.drinks[drink.id].ist}
-                onKeyDown={(event) => this.handleKeys(event, drink)}
-                onChange={(event) => this.onChangeIstField(event, drink)}
-                onClick={() => this.selectDrink(drink)} />
-            </td>
-            <td className={'text-right ' + this.state.drinks[drink.id].orderStyle} >
-              {this.state.drinks[drink.id].order}
-            </td>
-          </tr>
-          )}
-        </tbody>
-      </table>
-    );
+      <div>
+        {orders
+          .filter((order) => order.state === 'open')
+          .map((order) => this.renderOrder(order))}
+        {orders
+          .filter((order) => order.state != 'open')
+          .map((order) => this.renderOrder(order))}
+      </div>
+    )
   }
 }

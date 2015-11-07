@@ -1,6 +1,7 @@
 import React                    from 'react';
 import { bindActionCreators }   from 'redux';
 import { connect }              from 'react-redux';
+import OrderList                from '../components/OrderList';
 import actionCreators           from '../actions';
 
 
@@ -18,14 +19,16 @@ export class OrderListView extends React.Component {
   }
 
   render () {
+    const { orders, actions, ...other } = this.props;
     return (
       <div className="row">
         <div className="col-md-8">
           <div className="page-header">
-            <h3>getra:nce bectellungen <small></small></h3>
+            <h3>bectellungen <small></small></h3>
           </div>
           <div className="row">
-            <div className="col-md-8">
+            <div className="col-md-12">
+              <OrderList orders={orders} actions={actions} />
             </div>
           </div>
         </div>

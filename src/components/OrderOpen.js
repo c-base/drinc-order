@@ -1,13 +1,13 @@
 import React from 'react';
 
-export default class OrderCreate extends React.Component {
+export default class OrderOpen extends React.Component {
   static propTypes = {
     drinks: React.PropTypes.array,
-    onCreateClick: React.PropTypes.func
+    onOpenClick: React.PropTypes.func
   }
 
   handleClick() {
-    this.props.onCreateClick(this.props.drinks)
+    this.props.onOpenClick(this.props.drinks)
   }
 
   render() {
