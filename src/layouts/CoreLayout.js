@@ -7,10 +7,6 @@ export default class CoreLayout extends React.Component {
     children : React.PropTypes.element
   }
 
-  constructor () {
-    super();
-  }
-
   render () {
     return (
       <div className='container'>
