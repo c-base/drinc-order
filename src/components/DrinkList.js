@@ -17,8 +17,8 @@ export default class DrinkList extends React.Component {
     this.state = {drinks: {}}
     props.drinks.map((element) => this.state.drinks[element.id] = {
       ...element,
-      order: this._calculateAmountToOrder(element, element.ist),
-      orderStyle: this._contextColorClass(element, element.ist)
+      order: this.calculateAmountToOrder(element, element.ist),
+      orderStyle: this.contextColorClass(element, element.ist)
     })
   }
 
@@ -27,25 +27,24 @@ export default class DrinkList extends React.Component {
 
     if (ist === this.state.drinks[drink.id].ist) { return }
     this.state.drinks[drink.id].ist = ist;
-    this.state.drinks[drink.id].order = this._calculateAmountToOrder(drink, ist);
-    this.state.drinks[drink.id].orderStyle = this._contextColorClass(drink, ist);
+    this.state.drinks[drink.id].order = this.calculateAmountToOrder(drink, ist);
+    this.state.drinks[drink.id].orderStyle = this.contextColorClass(drink, ist);
     this.setState(this.state);
   }
 
-  _calculateAmountToOrder(drink, ist) {
+  calculateAmountToOrder(drink, ist) {
     ist = ist || 0
     const order = drink.max - parseInt(ist, 10);
     if (order < 0) return 0;
     return order;
   }
-  _contextColorClass(drink, ist) {
+  contextColorClass(drink, ist) {
     ist = ist || 0
 
+    if (ist >= drink.max)  return 'success';
     if (ist <= drink.min)    return 'danger';
     if (ist <= drink.min + (drink.max / 3)) return 'warning';
-    if (ist <= drink.max / 2)  return '';
-    if (ist >= drink.max)  return 'success';
-    return ''
+    return 'success'
   }
 
   selectDrink(drink) {
