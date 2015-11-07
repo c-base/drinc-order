@@ -10,19 +10,16 @@ export default class OrderList extends React.Component {
     }).isRequired).isRequired
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   renderDrinks(drinks) {
     return (
       <div><ul className="list-unstyled">
         {drinks
           .map((drink) => {
-            return <li key={drink.id}>
-              <span className="label label-success">{drink.max - drink.ist}</span> {drink.name}
-            </li>
+            return (
+              <li key={drink.id}>
+                <span className="label label-success">{drink.max - drink.ist}</span> {drink.name}
+              </li>
+            )
           })
         }
       </ul></div>
@@ -37,13 +34,14 @@ export default class OrderList extends React.Component {
   }
 
   renderStateButton(order) {
-    if (order.state !== 'open')
+    if (order.state !== 'open') {
       return (
         <button
           onClick={() => this.props.actions.reopenOrder(order)}
           className="btn btn-warning btn-xs text-right"
           type="button" >noch mal</button>
       );
+    }
     return (
       <button
         onClick={() => this.props.actions.closeOrder(order)}
@@ -84,7 +82,7 @@ export default class OrderList extends React.Component {
           .filter((order) => order.state === 'open')
           .map((order) => this.renderOrder(order))}
         {orders
-          .filter((order) => order.state != 'open')
+          .filter((order) => order.state !== 'open')
           .map((order) => this.renderOrder(order))}
       </div>
     )
