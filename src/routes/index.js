@@ -7,8 +7,8 @@ import OrderListView from 'views/OrderListView';
 
 export default (
   <Route component={CoreLayout}>
-    <Route name='home'   path='/'       component={HomeView} />
-    <Route name='drincs' path='/drincs' component={DrinksView} />
-    <Route name='orders' path='/orders' component={OrderListView} />
+    <Route name='carte'        path='/'             component={HomeView} />
+    <Route name='inventar'     path='/inventar'     component={DrinksView} />
+    <Route name='bectellungen' path='/bectellungen' component={OrderListView} />
   </Route>
 );

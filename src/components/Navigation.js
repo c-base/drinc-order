@@ -9,9 +9,9 @@ export default class Navigation extends React.Component {
     super(props);
     this.state = {
       navigation: [
-        {route: '/',       name: 'home'},
-        {route: '/drincs', name: 'drincs'},
-        {route: '/orders', name: 'bectellungen'}
+        {route: '/',             name: 'carte'},
+        {route: '/inventar',     name: 'inventar'},
+        {route: '/bectellungen', name: 'bectellungen'}
       ]
     };
   }
