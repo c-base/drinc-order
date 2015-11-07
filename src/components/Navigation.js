@@ -21,11 +21,11 @@ export default class Navigation extends React.Component {
       <nav className="navbar navbar-inverse navbar-fixed-top">
         <div className="container">
           <div className="navbar-header">
-            <a className="navbar-brand" href="/">getra:nce bestellung</a>
+            <Link to="/" className="navbar-brand">getra:nce</Link>
           </div>
           <div id="navbar" className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
-              {this.state.navigation.map((element) => <li><Link to={element.route}>{element.name}</Link></li>)}
+              {this.state.navigation.map((element, index) => <li key={index}><Link to={element.route}>{element.name}</Link></li>)}
             </ul>
           </div>
         </div>
