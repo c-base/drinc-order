@@ -22,7 +22,7 @@ export class OrderListView extends React.Component {
       <div className="row">
         <div className="col-md-8">
           <div className="page-header">
-            <h3>getra:nce bestellungen <small></small></h3>
+            <h3>getra:nce bectellungen <small></small></h3>
           </div>
           <div className="row">
             <div className="col-md-8">
