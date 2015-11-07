@@ -23,34 +23,33 @@ export default class DrinkList extends React.Component {
   }
 
   onChangeIstField(event, drink) {
-    const ist = parseInt(event.target.value, 10) || null;
+    const ist = parseInt(event.target.value, 10) || 0;
 
-    if (ist === this.state.drinks[drink.id].ist) { return }
+    if (ist == this.state.drinks[drink.id].ist) { return }
     this.state.drinks[drink.id].ist = ist;
     this.state.drinks[drink.id].order = this.calculateAmountToOrder(drink, ist);
     this.state.drinks[drink.id].orderStyle = this.contextColorClass(drink, ist);
     this.setState(this.state);
+
+    this.recordIst(drink, ist);
   }
 
   calculateAmountToOrder(drink, ist) {
-    ist = ist || 0
     const order = drink.max - parseInt(ist, 10);
     if (order < 0) return 0;
     return order;
   }
   contextColorClass(drink, ist) {
-    ist = ist || 0
-
     if (ist >= drink.max)  return 'success';
-    if (ist <= drink.min)    return 'danger';
+    if (ist <= drink.min)  return 'danger';
     if (ist <= drink.min + (drink.max / 3)) return 'warning';
     return 'success'
   }
 
-  selectDrink(drink) {
-    this.props.actions.selectDrink(drink);
-  }
   recordIst(drink, ist) {
+    if (!ist) { return; }
+    if (ist == drink.ist) { return; }
+
     this.props.actions.recordIst(drink.id, parseInt(ist, 10));
   }
   handleKeys(event, drink) {
@@ -85,8 +84,7 @@ export default class DrinkList extends React.Component {
                 className="form-control input-sm istInput"
                 ref="ist" value={this.state.drinks[drink.id].ist}
                 onKeyDown={(event) => this.handleKeys(event, drink)}
-                onChange={(event) => this.onChangeIstField(event, drink)}
-                onClick={() => this.selectDrink(drink)} />
+                onChange={(event) => this.onChangeIstField(event, drink)} />
             </td>
             <td className={'text-right ' + this.state.drinks[drink.id].orderStyle} >
               {this.state.drinks[drink.id].order}
