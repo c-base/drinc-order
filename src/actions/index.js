@@ -13,7 +13,7 @@ export const ORDER_REOPEN         = 'ORDER_REOPEN';
  * drink: action creators
  */
 export function addDrink(name, min, max) {
-  return { type : DRINK_CREATE, payload: {id: shortId.generate(), name, min, max, ist: null} };
+  return { type : DRINK_CREATE, payload: {name, min, max} };
 }
 
 export function selectDrink(drink) {
