@@ -26,7 +26,7 @@ export class DrinksView extends React.Component {
       <div className="row">
         <div className="col-md-8">
           <div className="page-header">
-            <h3>getra:nce <small>soll bestand</small></h3>
+            <h3>inventar <small>inventory</small></h3>
           </div>
           <div className="row">
             <div className="col-md-8">
