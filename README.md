@@ -1,11 +1,15 @@
 # c-base drinc order
 [![Build Status](https://travis-ci.org/c-base/drinc-order.svg?branch=master)](https://travis-ci.org/c-base/drinc-order?branch=master)
 
-#### drincs
-* see list of drincs: /drincs
+#### menu
+* see menu "the card" of drincs c-base offers to members and aliens
+
+
+#### inventory
+* see drincs inventar: /inventar
 * create order from current ist-state
 
-##### update drinc
+##### update inventar
 * update properties of drinc
 * change min- and maximum soll of drinc crates in store
 * set new ist-state (number of full crates in store)
@@ -21,7 +25,7 @@
 ##### open order
 * created order from drincs list
 * there can only be one open order
-* update properties / numbers of order
+* update properties / numbers of drincs to order
 
 ##### close order
 * final step for order, marks it as send
