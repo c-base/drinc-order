@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch) => ({
   actions : bindActionCreators(actionCreators, dispatch)
 });
 
-export class DrinksView extends React.Component {
+export class InventoryView extends React.Component {
   static propTypes = {
     drinks  : React.PropTypes.array,
     actions : React.PropTypes.object

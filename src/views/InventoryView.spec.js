@@ -1,7 +1,7 @@
 import React                  from 'react';
 import TestUtils              from 'react-addons-test-utils';
 import { bindActionCreators } from 'redux';
-import { DrinksView }            from './DrinksView';
+import { InventoryView }      from './InventoryView';
 
 function shallowRender (component) {
   const renderer = TestUtils.createRenderer();
@@ -11,11 +11,11 @@ function shallowRender (component) {
 }
 
 function renderWithProps (props = {}) {
-  return TestUtils.renderIntoDocument(<DrinksView {...props} />);
+  return TestUtils.renderIntoDocument(<InventoryView {...props} />);
 }
 
 function shallowRenderWithProps (props = {}) {
-  return shallowRender(<DrinksView {...props} />)
+  return shallowRender(<InventoryView {...props} />)
 }
 
 describe('(View) Drinks', function () {
