@@ -12,25 +12,8 @@ export default class DrinkList extends React.Component {
     }).isRequired).isRequired
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {drinks: {}}
-    props.drinks.map((element) => this.state.drinks[element.id] = {
-      ...element,
-      order: this.calculateAmountToOrder(element, element.ist),
-      orderStyle: this.contextColorClass(element, element.ist)
-    })
-  }
-
   onChangeIstField(event, drink) {
     const ist = parseInt(event.target.value, 10) || 0;
-
-    if (ist == this.state.drinks[drink.id].ist) { return }
-    this.state.drinks[drink.id].ist = ist;
-    this.state.drinks[drink.id].order = this.calculateAmountToOrder(drink, ist);
-    this.state.drinks[drink.id].orderStyle = this.contextColorClass(drink, ist);
-    this.setState(this.state);
-
     this.recordIst(drink, ist);
   }
 
@@ -56,7 +39,7 @@ export default class DrinkList extends React.Component {
     const ENTER = 13;
     const TAB   = 9;
     if (event.keyCode === ENTER || event.keyCode === TAB) {
-      return this.recordIst(drink, event.target.value);
+      this.recordIst(drink, event.target.value);
     }
   }
 
@@ -74,7 +57,7 @@ export default class DrinkList extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {drinks.map((drink) =>
+          {drinks.map(drink =>
           <tr key={drink.id}>
             <td>{drink.name}</td>
             <td className="text-right">{drink.min}</td>
@@ -82,12 +65,12 @@ export default class DrinkList extends React.Component {
             <td>
               <input
                 className="form-control input-sm istInput"
-                ref="ist" value={this.state.drinks[drink.id].ist}
+                ref="ist" value={drink.ist}
                 onKeyDown={(event) => this.handleKeys(event, drink)}
                 onChange={(event) => this.onChangeIstField(event, drink)} />
             </td>
-            <td className={'text-right ' + this.state.drinks[drink.id].orderStyle} >
-              {this.state.drinks[drink.id].order}
+            <td className={'text-right ' + this.contextColorClass(drink, drink.ist)} >
+              {this.calculateAmountToOrder(drink, drink.ist)}
             </td>
           </tr>
           )}
