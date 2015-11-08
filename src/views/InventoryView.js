@@ -2,7 +2,7 @@ import React                    from 'react';
 import { bindActionCreators }   from 'redux';
 import { connect }              from 'react-redux';
 import OrderOpen                from '../components/OrderOpen';
-import DrinkList                from '../components/DrinkList';
+import Inventory                from '../components/Inventory';
 import DrinkListExport          from '../components/DrinkListExport';
 import DrinkForm                from '../components/DrinkForm';
 import actionCreators           from '../actions';
@@ -30,7 +30,7 @@ export class InventoryView extends React.Component {
           </div>
           <div className="row">
             <div className="col-md-8">
-              <DrinkList drinks={drinks} actions={actions} />
+              <Inventory drinks={drinks} actions={actions} />
             </div>
             <div className="col-md-4">
               <div className="well"><OrderOpen drinks={drinks} onOpenClick={actions.openOrder} /></div>
@@ -44,4 +44,4 @@ export class InventoryView extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DrinksView);
+export default connect(mapStateToProps, mapDispatchToProps)(InventoryView);

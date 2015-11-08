@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class DrinkList extends React.Component {
+export default class Inventory extends React.Component {
   static propTypes = {
     actions: React.PropTypes.object.isRequired,
     drinks: React.PropTypes.arrayOf(React.PropTypes.shape({

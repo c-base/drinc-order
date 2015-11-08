@@ -131,7 +131,7 @@ export class MenuView extends React.Component {
   }
 
   render () {
-    const { drinks, actions, ...other } = this.props;
+    const { drinks } = this.props;
     return (
       <div className="row" onKeyDown={(event) => this.onKeyDown(event)}>
         <div className="col-md-8">
