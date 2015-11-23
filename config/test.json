@@ -1,0 +1,326 @@
+[
+  {
+    "name": "Berliner Pilsner",
+    "min": 3,
+    "max": 30,
+    "id": "drink-1",
+    "ist": 24,
+    "istHistory": [
+      {
+        "ist": 21,
+        "date": "2015-11-06T22:44:40.020Z"
+      },
+      {
+        "ist": 24,
+        "date": "2015-11-06T22:50:11.062Z"
+      }
+    ]
+  },
+  {
+    "name": "Premium Bier",
+    "min": 3,
+    "max": 5,
+    "id": "drink-2",
+    "ist": 4,
+    "istHistory": [
+      {
+        "ist": 3,
+        "date": "2015-11-06T22:44:50.649Z"
+      },
+      {
+        "ist": 4,
+        "date": "2015-11-06T22:50:43.062Z"
+      }
+    ]
+  },
+  {
+    "name": "Schöfferhofer Hefe hell",
+    "min": 2,
+    "max": 4,
+    "id": "drink-3",
+    "ist": 3,
+    "istHistory": [
+      {
+        "ist": 3,
+        "date": "2015-11-06T22:44:58.612Z"
+      }
+    ]
+  },
+  {
+    "name": "Club Mate",
+    "min": 5,
+    "max": 8,
+    "id": "drink-4",
+    "ist": 7,
+    "istHistory": [
+      {
+        "ist": 7,
+        "date": "2015-11-06T22:45:41.631Z"
+      }
+    ]
+  },
+  {
+    "name": "Flora Power Mate",
+    "min": 10,
+    "max": 12,
+    "id": "drink-5",
+    "ist": 10,
+    "istHistory": [
+      {
+        "ist": 10,
+        "date": "2015-11-06T22:45:28.187Z"
+      }
+    ]
+  },
+  {
+    "name": "Kolle Mate",
+    "min": 4,
+    "max": 6,
+    "id": "drink-6",
+    "ist": 1,
+    "istHistory": [
+      {
+        "ist": 1,
+        "date": "2015-11-06T22:48:11.928Z"
+      }
+    ]
+  },
+  {
+    "name": "Premium Cola",
+    "min": 4,
+    "max": 6,
+    "id": "drink-7",
+    "ist": 5,
+    "istHistory": [
+      {
+        "ist": 5,
+        "date": "2015-11-06T22:45:11.688Z"
+      }
+    ]
+  },
+  {
+    "name": "Coca-Cola",
+    "min": 2,
+    "max": 3,
+    "id": "drink-8",
+    "ist": 2,
+    "istHistory": [
+      {
+        "ist": 2,
+        "date": "2015-11-06T22:48:19.501Z"
+      }
+    ]
+  },
+  {
+    "name": "Spezi",
+    "min": 4,
+    "max": 6,
+    "id": "drink-9",
+    "ist": 2,
+    "istHistory": [
+      {
+        "ist": 2,
+        "date": "2015-11-06T22:48:31.067Z"
+      }
+    ]
+  },
+  {
+    "name": "Braumeister Kraftmalz",
+    "min": 1,
+    "max": 2,
+    "id": "drink-10",
+    "ist": 4,
+    "istHistory": [
+      {
+        "ist": 3,
+        "date": "2015-11-06T22:47:29.854Z"
+      },
+      {
+        "ist": 4,
+        "date": "2015-11-06T22:50:19.430Z"
+      }
+    ]
+  },
+  {
+    "name": "Wostok Kräuter (Tannenwald)",
+    "min": 1,
+    "max": 2,
+    "id": "drink-11",
+    "ist": 3,
+    "istHistory": [
+      {
+        "ist": 3,
+        "date": "2015-11-06T22:50:32.382Z"
+      }
+    ]
+  },
+  {
+    "name": "Selters classic",
+    "min": 3,
+    "max": 5,
+    "id": "drink-12",
+    "ist": 3,
+    "istHistory": [
+      {
+        "ist": 3,
+        "date": "2015-11-06T22:48:41.922Z"
+      }
+    ]
+  },
+  {
+    "name": "Selters still",
+    "min": 3,
+    "max": 5,
+    "id": "drink-13",
+    "ist": 3,
+    "istHistory": [
+      {
+        "ist": 3,
+        "date": "2015-11-06T22:48:55.941Z"
+      }
+    ]
+  },
+  {
+    "name": "OBC classic",
+    "min": 2,
+    "max": 3,
+    "id": "drink-14",
+    "ist": 2,
+    "istHistory": [
+      {
+        "ist": 2,
+        "date": "2015-11-06T22:49:13.082Z"
+      }
+    ]
+  },
+  {
+    "name": "OBC strong",
+    "min": 2,
+    "max": 3,
+    "id": "drink-15",
+    "ist": 2,
+    "istHistory": [
+      {
+        "ist": 2,
+        "date": "2015-11-06T22:49:15.531Z"
+      }
+    ]
+  },
+  {
+    "name": "Rixdorfer Fassbrause",
+    "min": 1,
+    "max": 1,
+    "id": "drink-16",
+    "ist": 1,
+    "istHistory": [
+      {
+        "ist": 1,
+        "date": "2015-11-06T22:49:30.950Z"
+      }
+    ]
+  },
+  {
+    "name": "Rixdorfer Orange",
+    "min": 1,
+    "max": 1,
+    "id": "drink-17",
+    "ist": 1,
+    "istHistory": [
+      {
+        "ist": 1,
+        "date": "2015-11-06T22:49:32.444Z"
+      }
+    ]
+  },
+  {
+    "name": "Bauer-Schorle Rhabarber",
+    "min": 1,
+    "max": 1,
+    "id": "drink-18",
+    "ist": 1,
+    "istHistory": [
+      {
+        "ist": 1,
+        "date": "2015-11-06T22:49:39.165Z"
+      }
+    ]
+  },
+  {
+    "name": "Bauer-Schorle Granatabpfel",
+    "min": 1,
+    "max": 1,
+    "id": "drink-19",
+    "ist": 1,
+    "istHistory": [
+      {
+        "ist": 1,
+        "date": "2015-11-06T22:55:41.691Z"
+      }
+    ]
+  },
+  {
+    "name": "Schöfferhofer alkoholfrei",
+    "min": 1,
+    "max": 1,
+    "id": "drink-20",
+    "ist": 1,
+    "istHistory": [
+      {
+        "ist": 1,
+        "date": "2015-11-06T22:46:15.184Z"
+      }
+    ]
+  },
+  {
+    "name": "Schöfferhofer Mix Grapefruit",
+    "min": 1,
+    "max": 1,
+    "id": "drink-21",
+    "ist": 1,
+    "istHistory": [
+      {
+        "ist": 1,
+        "date": "2015-11-06T22:46:17.825Z"
+      }
+    ]
+  },
+  {
+    "name": "Berliner Kindl Radler",
+    "min": 1,
+    "max": 1,
+    "id": "drink-22",
+    "ist": 1,
+    "istHistory": [
+      {
+        "ist": 1,
+        "date": "2015-11-06T22:47:08.888Z"
+      }
+    ]
+  },
+  {
+    "name": "Wostok Estragon-Ingwer (grün)",
+    "min": 5,
+    "max": 5,
+    "id": "drink-23",
+    "ist": 2,
+    "istHistory": [
+      {
+        "ist": 2,
+        "date": "2015-11-06T22:48:00.666Z"
+      }
+    ]
+  },
+  {
+    "name": "Holsten alkoholfrei",
+    "min": 5,
+    "max": 5,
+    "id": "drink-24",
+    "ist": 4,
+    "istHistory": [
+      {
+        "ist": 4,
+        "date": "2015-11-06T22:49:49.477Z"
+      }
+    ]
+  }
+]
