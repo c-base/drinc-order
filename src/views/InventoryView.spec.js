@@ -18,7 +18,7 @@ function shallowRenderWithProps (props = {}) {
   return shallowRender(<InventoryView {...props} />)
 }
 
-describe('(View) Drinks', function () {
+describe('(View) Inventory', function () {
   let component, rendered, _props, _spies;
 
   beforeEach(function () {
@@ -42,31 +42,10 @@ describe('(View) Drinks', function () {
     expect(component.type).to.equal('div');
   });
 
-  it('Should include an <h1> with a headline.', function () {
-    const h1 = TestUtils.findRenderedDOMComponentWithTag(rendered, 'h1');
+  it('Should include an <h3> with a headline.', function () {
+    const h3 = TestUtils.findRenderedDOMComponentWithTag(rendered, 'h3');
 
-    expect(h1).to.exist;
-    expect(h1.textContent).to.match(/Getränce/);
-  });
-
-  it('Should render an input field.', function () {
-    const input = TestUtils.findRenderedDOMComponentWithTag(rendered, 'input');
-
-    expect(input).to.exist;
-  });
-
-  it('Should render an "Add" button.', function () {
-    const btn = TestUtils.findRenderedDOMComponentWithTag(rendered, 'button');
-
-    expect(btn).to.exist;
-    expect(btn.textContent).to.match(/Add/);
-  });
-
-  it('Should dispatch an action when "Add" button is clicked.', function () {
-    const btn = TestUtils.findRenderedDOMComponentWithTag(rendered, 'button');
-
-    _spies.dispatch.should.have.not.been.called;
-    TestUtils.Simulate.click(btn);
-    _spies.dispatch.should.have.been.called;
+    expect(h3).to.exist;
+    expect(h3.textContent).to.match(/inventar inventory/);
   });
 });
