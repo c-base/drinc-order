@@ -3,8 +3,6 @@ import { bindActionCreators }   from 'redux';
 import { connect }              from 'react-redux';
 import OrderOpen                from '../components/OrderOpen';
 import Inventory                from '../components/Inventory';
-import DrinkListExport          from '../components/DrinkListExport';
-import DrinkForm                from '../components/DrinkForm';
 import actionCreators           from '../actions';
 
 const mapStateToProps = (state) => ({
@@ -29,13 +27,13 @@ export class InventoryView extends React.Component {
             <h3>inventar <small>inventory</small></h3>
           </div>
           <div className="row">
-            <div className="col-md-8">
-              <Inventory drinks={drinks} actions={actions} />
-            </div>
             <div className="col-md-4">
               <div className="well"><OrderOpen drinks={drinks} onOpenClick={actions.openOrder} /></div>
-              <div className="well"><DrinkListExport drinks={drinks} /></div>
-              <div className="well"><DrinkForm onAddClick={actions.addDrink} /></div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-12">
+              <Inventory drinks={drinks} actions={actions} />
             </div>
           </div>
         </div>

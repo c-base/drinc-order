@@ -10,8 +10,8 @@ export const drinkGroups = {
 };
 
 export const navigation = [
-  {route: '/',             name: 'carte'},
-  {route: '/inventar',     name: 'inventar'},
-  {route: '/bectellungen', name: 'bectellungen'},
-  {route: '/verwaltunc',   name: 'verwaltunc'}
+  {to: '/',             name: 'carte',        component: ''},
+  {to: '/inventar',     name: 'inventar',     component: ''},
+  {to: '/bectellungen', name: 'bectellungen', component: ''},
+  {to: '/verwaltunc',   name: 'verwaltunc',   component: ''}
 ];

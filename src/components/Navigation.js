@@ -1,19 +1,10 @@
-import React    from 'react';
-import { Link } from 'react-router';
+import React            from 'react';
+import { Link }         from 'react-router';
+import { navigation }   from '../constants';
 
 export default class Navigation extends React.Component {
   static propTypes = {
     history: React.PropTypes.object.isRequired
-  }
-  constructor(props) {
-    super(props);
-    this.state = {
-      navigation: [
-        {route: '/',             name: 'carte'},
-        {route: '/inventar',     name: 'inventar'},
-        {route: '/bectellungen', name: 'bectellungen'}
-      ]
-    };
   }
 
   render() {
@@ -25,7 +16,7 @@ export default class Navigation extends React.Component {
           </div>
           <div id="navbar" className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
-              {this.state.navigation.map((element, index) => <li key={index}><Link to={element.route}>{element.name}</Link></li>)}
+              { navigation.map((route, index) => <li key={index}><Link to={route.to}>{route.name}</Link></li>)}
             </ul>
           </div>
         </div>

@@ -2,6 +2,7 @@ const shortId = require('shortid');
 
 export const DRINK_CREATE         = 'DRINK_CREATE';
 export const DRINK_SELECT         = 'DRINK_SELECT';
+export const DRINK_UNSELECT       = 'DRINK_UNSELECT';
 export const DRINK_UPDATE         = 'DRINK_UPDATE';
 export const DRINK_RECORD_IST     = 'DRINK_RECORD_IST';
 
@@ -18,6 +19,10 @@ export function addDrink(name, min, max) {
 
 export function selectDrink(drink) {
   return { type : DRINK_SELECT, payload: {...drink} };
+}
+
+export function unselectDrink() {
+  return { type : DRINK_UNSELECT, payload: {} };
 }
 
 export function updateDrink(drink) {
@@ -45,6 +50,7 @@ export function reopenOrder(order) {
 export default {
   addDrink,
   selectDrink,
+  unselectDrink,
   updateDrink,
   recordIst,
 

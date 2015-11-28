@@ -18,7 +18,7 @@ export default class OrderOpen extends React.Component {
             onClick={() => this.handleClick()}
             className="btn btn-default col-md-12"
             type="button"
-            >bestellung</button>
+            >bestellung erstellen</button>
         </div>
       </div>
     );
