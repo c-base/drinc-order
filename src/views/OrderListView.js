@@ -1,12 +1,13 @@
 import React                    from 'react';
 import { bindActionCreators }   from 'redux';
 import { connect }              from 'react-redux';
-import OrderList                from '../components/OrderList';
+import Order                    from '../components/Order';
 import actionCreators           from '../actions';
 
 
 const mapStateToProps = (state) => ({
-  orders        : state.orders
+  orders        : state.orders,
+  openOrder     : state.openOrder
 });
 const mapDispatchToProps = (dispatch) => ({
   actions : bindActionCreators(actionCreators, dispatch)
@@ -14,12 +15,13 @@ const mapDispatchToProps = (dispatch) => ({
 
 export class OrderListView extends React.Component {
   static propTypes = {
-    orders  : React.PropTypes.array,
-    actions : React.PropTypes.object
+    orders     : React.PropTypes.array,
+    actions    : React.PropTypes.object,
+    openOrder  : React.PropTypes.any,
   }
 
   render () {
-    const { orders, actions, ...other } = this.props;
+    const { orders, actions, openOrder } = this.props;
     return (
       <div className="row">
         <div className="col-md-8">
@@ -28,7 +30,10 @@ export class OrderListView extends React.Component {
           </div>
           <div className="row">
             <div className="col-md-12">
-              <OrderList orders={orders} actions={actions} />
+              <Order order={openOrder} isOpen={true} actions={actions} />
+
+              {orders.map((order) =>
+                  <Order order={order} isOpen={false} actions={actions} /> )}
             </div>
           </div>
         </div>

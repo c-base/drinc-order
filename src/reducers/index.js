@@ -1,10 +1,12 @@
 import { combineReducers }  from 'redux';
 import drinks               from './drinks';
-import selected             from './selected';
+import selectedDrink        from './selectedDrink';
 import orders               from './orders';
+import openOrder            from './openOrder';
 
 export default combineReducers({
   drinks,
-  selected,
-  orders
+  selectedDrink,
+  orders,
+  openOrder
 });

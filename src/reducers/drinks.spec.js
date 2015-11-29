@@ -27,7 +27,6 @@ describe('(Reducer) drinks', () => {
   it('DRINK_UPDATE: should update the a drink', () => {
     const state = reducer(initialState, {type: actions.DRINK_UPDATE, payload: {id: 'drink-1', max: 42}});
     expect(state[0].max).to.equal(42)
-
   })
 
 })

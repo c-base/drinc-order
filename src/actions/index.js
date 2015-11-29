@@ -8,6 +8,7 @@ export const DRINK_RECORD_IST     = 'DRINK_RECORD_IST';
 
 export const ORDER_OPEN           = 'ORDER_OPEN';
 export const ORDER_CLOSE          = 'ORDER_CLOSE';
+export const ORDER_CLOSED         = 'ORDER_CLOSED';
 export const ORDER_REOPEN         = 'ORDER_REOPEN';
 
 /*
@@ -41,10 +42,16 @@ export function openOrder(drinks) {
 }
 
 export function closeOrder(order) {
-  return { type : ORDER_CLOSE, payload: {...order} };
+  return function (dispatch) {
+    dispatch({ type : ORDER_CLOSE,  payload: {...order} });
+    dispatch({ type : ORDER_CLOSED, payload: {...order} });
+  }
 }
 export function reopenOrder(order) {
-  return { type : ORDER_REOPEN, payload: {...order} };
+  return function (dispatch) {
+    dispatch({ type : ORDER_REOPEN,   payload: {...order} });
+    dispatch({ type : ORDER_REOPENED, payload: {...order} });
+  }
 }
 
 export default {

@@ -27,7 +27,7 @@ export class InventoryView extends React.Component {
             <h3>inventar <small>inventory</small></h3>
           </div>
           <div className="row">
-            <div className="col-md-4">
+            <div className="col-md-5">
               <div className="well"><OrderOpen drinks={drinks} onOpenClick={actions.openOrder} /></div>
             </div>
           </div>

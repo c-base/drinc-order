@@ -6,11 +6,9 @@ import { drinkGroups }          from '../constants';
 import DrinkForm                from '../components/DrinkForm';
 import DrinkListExport          from '../components/DrinkListExport';
 
-
-
 const mapStateToProps = (state) => ({
   drinks        : state.drinks,
-  selected      : state.selected
+  selectedDrink : state.selectedDrink
 });
 const mapDispatchToProps = (dispatch) => ({
   actions : bindActionCreators(actionCreators, dispatch)
@@ -18,9 +16,9 @@ const mapDispatchToProps = (dispatch) => ({
 
 export class ManageView extends React.Component {
   static propTypes = {
-    drinks  : React.PropTypes.array,
-    actions : React.PropTypes.object,
-    selected: React.PropTypes
+    drinks        : React.PropTypes.array,
+    actions       : React.PropTypes.object,
+    selectedDrink : React.PropTypes
   }
 
   onClickRow(drink) {
@@ -46,7 +44,7 @@ export class ManageView extends React.Component {
   }
 
   render () {
-    const { drinks, selected } = this.props;
+    const { drinks, selectedDrink } = this.props;
     return (
       <div className="row" onKeyDown={(event) => this.onKeyDown(event)}>
         <div className="col-md-8">
@@ -59,12 +57,10 @@ export class ManageView extends React.Component {
             </div>
           </div>
 
-
-          { (selected !== null)
-            ? <DrinkForm drink={selected} updateDrink={this.props.actions.updateDrink} />
+          { (selectedDrink !== null)
+            ? <DrinkForm drink={selectedDrink} updateDrink={this.props.actions.updateDrink} />
             : ''
           }
-
 
           {Object.keys(drinkGroups).map((group) =>
 
